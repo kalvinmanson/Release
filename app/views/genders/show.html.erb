@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @gender.name %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @gender.slug %>
+</p>
+
+<p>
+  <strong>Name en:</strong>
+  <%= @gender.name_en %>
+</p>
+
+<%= link_to 'Edit', edit_gender_path(@gender) %> |
+<%= link_to 'Back', genders_path %>

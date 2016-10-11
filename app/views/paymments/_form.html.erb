@@ -1,0 +1,67 @@
+<%= form_for(paymment) do |f| %>
+  <% if paymment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(paymment.errors.count, "error") %> prohibited this paymment from being saved:</h2>
+
+      <ul>
+      <% paymment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ammount %>
+    <%= f.text_field :ammount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :shipping %>
+    <%= f.text_field :shipping %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cost %>
+    <%= f.text_field :cost %>
+  </div>
+
+  <div class="field">
+    <%= f.label :detail_products %>
+    <%= f.text_area :detail_products %>
+  </div>
+
+  <div class="field">
+    <%= f.label :detail_paymment %>
+    <%= f.text_area :detail_paymment %>
+  </div>
+
+  <div class="field">
+    <%= f.label :detail %>
+    <%= f.text_field :detail %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state_payed %>
+    <%= f.check_box :state_payed %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state_shipped %>
+    <%= f.check_box :state_shipped %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state_take %>
+    <%= f.check_box :state_take %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

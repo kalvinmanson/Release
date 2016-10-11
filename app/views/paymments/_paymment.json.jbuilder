@@ -1,0 +1,2 @@
+json.extract! paymment, :id, :user_id, :ammount, :shipping, :cost, :detail_products, :detail_paymment, :detail, :state_payed, :state_shipped, :state_take, :created_at, :updated_at
+json.url paymment_url(paymment, format: :json)

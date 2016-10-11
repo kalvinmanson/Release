@@ -1,0 +1,28 @@
+<%= link_to 'New City', new_city_path, class: "pull-right btn btn-primary" %>
+<h1>Cities</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Country</th>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cities.each do |city| %>
+      <tr>
+        <td><%= city.country.name %></td>
+        <td><%= city.name %></td>
+        <td>
+          <div class="btn-group">
+            <%= link_to '<i class="fa fa-eye"></i>'.html_safe, city, class: "btn btn-xs btn-info" %>
+            <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_country_path(city), class: "btn btn-xs btn-warning" %>
+            <%= link_to '<i class="fa fa-remove"></i>'.html_safe, city, class: "btn btn-xs btn-danger",  method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

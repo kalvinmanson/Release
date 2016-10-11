@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  ammount: 1.5
+  shipping: 1.5
+  cost: 1.5
+  detail_products: MyText
+  detail_paymment: MyText
+  detail: 
+  state_payed: false
+  state_shipped: false
+  state_take: false
+
+two:
+  user: two
+  ammount: 1.5
+  shipping: 1.5
+  cost: 1.5
+  detail_products: MyText
+  detail_paymment: MyText
+  detail: 
+  state_payed: false
+  state_shipped: false
+  state_take: false

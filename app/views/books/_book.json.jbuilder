@@ -1,0 +1,2 @@
+json.extract! book, :id, :user_id, :name, :slug, :author, :publisher, :collection, :pages, :isbn_10, :isbn_13, :abstract, :lang, :condition, :stack, :price, :tags, :quality, :created_at, :updated_at
+json.url book_url(book, format: :json)

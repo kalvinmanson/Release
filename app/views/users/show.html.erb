@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>City:</strong>
+  <%= @user.city %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @user.slug %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%= @user.avatar %>
+</p>
+
+<p>
+  <strong>Rol:</strong>
+  <%= @user.rol %>
+</p>
+
+<p>
+  <strong>Rank:</strong>
+  <%= @user.rank %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @user.gender %>
+</p>
+
+<p>
+  <strong>Bithdate:</strong>
+  <%= @user.bithdate %>
+</p>
+
+<p>
+  <strong>Banned:</strong>
+  <%= @user.banned %>
+</p>
+
+<p>
+  <strong>Banned date:</strong>
+  <%= @user.banned_date %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @user.active %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

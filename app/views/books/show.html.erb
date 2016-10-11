@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @book.user %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @book.name %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @book.slug %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>Publisher:</strong>
+  <%= @book.publisher %>
+</p>
+
+<p>
+  <strong>Collection:</strong>
+  <%= @book.collection %>
+</p>
+
+<p>
+  <strong>Pages:</strong>
+  <%= @book.pages %>
+</p>
+
+<p>
+  <strong>Isbn 10:</strong>
+  <%= @book.isbn_10 %>
+</p>
+
+<p>
+  <strong>Isbn 13:</strong>
+  <%= @book.isbn_13 %>
+</p>
+
+<p>
+  <strong>Abstract:</strong>
+  <%= @book.abstract %>
+</p>
+
+<p>
+  <strong>Lang:</strong>
+  <%= @book.lang %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @book.condition %>
+</p>
+
+<p>
+  <strong>Stack:</strong>
+  <%= @book.stack %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @book.price %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @book.tags %>
+</p>
+
+<p>
+  <strong>Quality:</strong>
+  <%= @book.quality %>
+</p>
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>

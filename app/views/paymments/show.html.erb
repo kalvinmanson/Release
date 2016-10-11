@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @paymment.user %>
+</p>
+
+<p>
+  <strong>Ammount:</strong>
+  <%= @paymment.ammount %>
+</p>
+
+<p>
+  <strong>Shipping:</strong>
+  <%= @paymment.shipping %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @paymment.cost %>
+</p>
+
+<p>
+  <strong>Detail products:</strong>
+  <%= @paymment.detail_products %>
+</p>
+
+<p>
+  <strong>Detail paymment:</strong>
+  <%= @paymment.detail_paymment %>
+</p>
+
+<p>
+  <strong>Detail:</strong>
+  <%= @paymment.detail %>
+</p>
+
+<p>
+  <strong>State payed:</strong>
+  <%= @paymment.state_payed %>
+</p>
+
+<p>
+  <strong>State shipped:</strong>
+  <%= @paymment.state_shipped %>
+</p>
+
+<p>
+  <strong>State take:</strong>
+  <%= @paymment.state_take %>
+</p>
+
+<%= link_to 'Edit', edit_paymment_path(@paymment) %> |
+<%= link_to 'Back', paymments_path %>

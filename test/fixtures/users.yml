@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city: one
+  name: MyString
+  slug: MyString
+  avatar: MyString
+  rol: MyString
+  rank: 1.5
+  gender: MyString
+  bithdate: 2016-10-01
+  banned: false
+  banned_date: 2016-10-01
+  active: false
+
+two:
+  city: two
+  name: MyString
+  slug: MyString
+  avatar: MyString
+  rol: MyString
+  rank: 1.5
+  gender: MyString
+  bithdate: 2016-10-01
+  banned: false
+  banned_date: 2016-10-01
+  active: false
