@@ -44,6 +44,7 @@ gem "paperclip", "~> 5.0.0" #agregar campos
 gem 'geocoder' #Configurar en server final
 gem 'geokit-rails' 
 gem 'friendly_id', '~> 5.1.0' #URLs Amigables
+gem "wysiwyg-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

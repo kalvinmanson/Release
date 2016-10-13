@@ -13,7 +13,7 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.text :abstract
       t.string :lang
       t.integer :condition
-      t.boolean :stack
+      t.boolean :stock
       t.integer :price
       t.string :tags
       t.integer :quality

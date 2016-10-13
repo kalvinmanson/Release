@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :paymments
   devise_for :users
   resources :books
   resources :pictures
@@ -6,7 +7,6 @@ Rails.application.routes.draw do
   resources :comments
   resources :notifications
   resources :ranks
-  resources :paymments
   resources :orders
   resources :posts
   resources :categories

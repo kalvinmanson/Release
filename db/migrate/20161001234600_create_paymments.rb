@@ -5,9 +5,9 @@ class CreatePaymments < ActiveRecord::Migration[5.0]
       t.float :ammount
       t.float :shipping
       t.float :cost
-      t.text :detail_products
-      t.text :detail_paymment
-      t.text :detail_shipping
+      t.text :info_products
+      t.text :info_paymment
+      t.text :info_shipping
       t.boolean :state_payed
       t.boolean :state_shipped
       t.boolean :state_take

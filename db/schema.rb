@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161002174913) do
+ActiveRecord::Schema.define(version: 20161013220954) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20161002174913) do
     t.text     "abstract",   limit: 65535
     t.string   "lang"
     t.integer  "condition"
-    t.boolean  "stack"
+    t.boolean  "stock"
     t.integer  "price"
     t.string   "tags"
     t.integer  "quality"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20161002174913) do
     t.integer  "post_id"
     t.integer  "user_id"
     t.integer  "parent_id"
-    t.string   "content"
+    t.text   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_comments_on_book_id", using: :btree
@@ -89,6 +89,18 @@ ActiveRecord::Schema.define(version: 20161002174913) do
     t.string   "country_code"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "friendly_id_slugs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
 
   create_table "genders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -130,9 +142,9 @@ ActiveRecord::Schema.define(version: 20161002174913) do
     t.float    "ammount",         limit: 24
     t.float    "shipping",        limit: 24
     t.float    "cost",            limit: 24
-    t.text     "detail_products", limit: 65535
-    t.text     "detail_paymment", limit: 65535
-    t.text     "detail_shipping", limit: 65535
+    t.text     "info_products", limit: 65535
+    t.text     "info_paymment", limit: 65535
+    t.text     "info_shipping", limit: 65535
     t.boolean  "state_payed"
     t.boolean  "state_shipped"
     t.boolean  "state_take"
@@ -145,8 +157,12 @@ ActiveRecord::Schema.define(version: 20161002174913) do
     t.integer  "user_id"
     t.integer  "book_id"
     t.integer  "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
     t.index ["book_id"], name: "index_pictures_on_book_id", using: :btree
     t.index ["post_id"], name: "index_pictures_on_post_id", using: :btree
     t.index ["user_id"], name: "index_pictures_on_user_id", using: :btree

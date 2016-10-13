@@ -11,87 +11,83 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
+    <%= f.select(:user_id, User.all.collect {|a| [a.name, a.id]}, {}, { class: 'form-control' }) -%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :slug %>
-    <%= f.text_field :slug %>
-  </div>
-
-  <div class="field">
+  <div class="form-group">
     <%= f.label :author %>
-    <%= f.text_field :author %>
+    <%= f.text_field :author, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :publisher %>
-    <%= f.text_field :publisher %>
+    <%= f.text_field :publisher, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :collection %>
-    <%= f.text_field :collection %>
+    <%= f.text_field :collection, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :pages %>
-    <%= f.number_field :pages %>
+    <%= f.number_field :pages, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :isbn_10 %>
-    <%= f.text_field :isbn_10 %>
+    <%= f.text_field :isbn_10, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :isbn_13 %>
-    <%= f.text_field :isbn_13 %>
+    <%= f.text_field :isbn_13, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :abstract %>
-    <%= f.text_area :abstract %>
+    <%= f.text_area :abstract, class: "form-control froalamin" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :lang %>
-    <%= f.text_field :lang %>
+    <%= f.text_field :lang, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :condition %>
-    <%= f.number_field :condition %>
+    <%= f.number_field :condition, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :stack %>
-    <%= f.check_box :stack %>
+  <div class="checkbox">
+    <%= f.label :stock do %>
+    <%= f.check_box :stock %> In Stock ?
+    <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :price %>
-    <%= f.number_field :price %>
+    <%= f.number_field :price, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :tags %>
-    <%= f.text_field :tags %>
+    <%= f.text_field :tags, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :quality %>
-    <%= f.number_field :quality %>
+    <%= f.number_field :quality, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>

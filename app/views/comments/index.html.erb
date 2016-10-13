@@ -1,8 +1,8 @@
-<p id="notice"><%= notice %></p>
+<%= link_to 'New Comment', new_comment_path, class: "btn btn-primary pull-right" %>
 
 <h1>Comments</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Book</th>
@@ -10,26 +10,26 @@
       <th>User</th>
       <th>Parent</th>
       <th>Content</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
-        <td><%= comment.book %></td>
-        <td><%= comment.post %></td>
-        <td><%= comment.user %></td>
+        <td><%= comment.book.name if comment.book.present? %></td>
+        <td><%= comment.post.name if comment.post.present? %></td>
+        <td><%= comment.user.name %></td>
         <td><%= comment.parent_id %></td>
         <td><%= comment.content %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <div class="btn-group">
+            <%= link_to '<i class="fa fa-eye"></i>'.html_safe, comment, class: "btn btn-xs btn-info" %>
+            <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_comment_path(comment), class: "btn btn-xs btn-warning" %>
+            <%= link_to '<i class="fa fa-remove"></i>'.html_safe, comment, class: "btn btn-xs btn-danger",  method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Comment', new_comment_path %>

@@ -20,57 +20,64 @@
     <%= f.select(:city_id, City.all.collect {|a| [a.name, a.id]}, {}, { class: 'form-control', disabled: true }) %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :slug %>
-    <%= f.text_field :slug %>
+    <%= f.text_field :slug, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :avatar %>
-    <%= f.text_field :avatar %>
+    <%= f.text_field :avatar, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :rol %>
-    <%= f.text_field :rol %>
+    <%= f.select(:rol, [["User", "User"], ["Admin", "Admin"]], {}, { class: "form-control" }) %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :rank %>
-    <%= f.text_field :rank %>
+    <%= f.text_field :rank, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :gender %>
-    <%= f.text_field :gender %>
+    <%= f.select(:gender, [["Male", "Male"], ["Female", "Female"]], {}, { class: "form-control" }) %>
   </div>
 
-  <div class="field">
-    <%= f.label :bithdate %>
-    <%= f.date_select :bithdate %>
+  <div class="form-group">
+    <div class="form-inline">
+      <%= f.label :bithdate %>
+      <%= f.date_select :bithdate, {}, { class: "form-control" } %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :banned %>
-    <%= f.check_box :banned %>
+  <div class="checkbox">
+    <%= f.label :banned do %>
+    <%= f.check_box :banned %> Banned ?
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :banned_date %>
-    <%= f.date_select :banned_date %>
+  <div class="form-group">
+    <div class="form-inline">
+      <%= f.label :banned_date %>
+      <%= f.date_select :banned_date, {}, { class: "form-control" } %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :active %>
-    <%= f.check_box :active %>
+
+  <div class="checkbox">
+    <%= f.label :active do %>
+    <%= f.check_box :active %> Active ?
+    <% end %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>

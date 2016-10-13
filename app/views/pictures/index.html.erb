@@ -1,31 +1,33 @@
-<p id="notice"><%= notice %></p>
+<%= link_to 'New Picture', new_picture_path, class: "btn btn-primary pull-right" %>
 
 <h1>Pictures</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>User</th>
       <th>Book</th>
       <th>Post</th>
-      <th colspan="3"></th>
+      <th>File</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @pictures.each do |picture| %>
       <tr>
-        <td><%= picture.user %></td>
-        <td><%= picture.book %></td>
-        <td><%= picture.post %></td>
-        <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= picture.user.name %></td>
+        <td><%= picture.book.name if picture.book.present? %></td>
+        <td><%= picture.post.name if picture.post.present? %></td>
+        <td><%= image_tag picture.file.url(:thumb) %></td>
+        <td>
+          <div class="btn-group">
+            <%= link_to '<i class="fa fa-eye"></i>'.html_safe, picture, class: "btn btn-xs btn-info" %>
+            <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_picture_path(picture), class: "btn btn-xs btn-warning" %>
+            <%= link_to '<i class="fa fa-remove"></i>'.html_safe, picture, class: "btn btn-xs btn-danger",  method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Picture', new_picture_path %>

@@ -16,11 +16,47 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
+
+
+//= require froala_editor.min.js
+//= require plugins/align.min.js
+//= require plugins/char_counter.min.js
+//= require plugins/code_beautifier.min.js
+//= require plugins/code_view.min.js
+//= require plugins/colors.min.js
+//= require plugins/emoticons.min.js
+//= require plugins/entities.min.js
+//= require plugins/file.min.js
+//= require plugins/font_family.min.js
+//= require plugins/font_size.min.js
+//= require plugins/fullscreen.min.js
+//= require plugins/image.min.js
+//= require plugins/image_manager.min.js
+//= require plugins/inline_style.min.js
+//= require plugins/line_breaker.min.js
+//= require plugins/link.min.js
+//= require plugins/lists.min.js
+//= require plugins/paragraph_format.min.js
+//= require plugins/paragraph_style.min.js
+//= require plugins/quick_insert.min.js
+//= require plugins/quote.min.js
+//= require plugins/save.min.js
+//= require plugins/table.min.js
+//= require plugins/url.min.js
+//= require plugins/video.min.js
+//= require languages/es.js
+
 //= require_tree .
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
 	
-	$.material.init()
+	$.material.init();
+    $('.froala').froalaEditor();
+    $('.froalamin').froalaEditor({
+        language:   'es',
+        toolbarButtons: ['undo', 'redo' , '|', 'bold', 'italic', 'underline', 'strikethrough', 'paragraphFormat', 'fontSize', 'subscript', 'superscript', 'outdent', 'indent', 'formatUL', 'formatOL', 'clearFormatting', 'insertLink', 'insertVideo', 'quote'],
+        toolbarButtonsXS: ['undo', 'redo' , '-', 'bold', 'italic', 'underline']
+    });
 
 	//Manejador de combos
     $(".combo_change").change(function(){

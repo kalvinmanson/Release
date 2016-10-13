@@ -5,9 +5,9 @@ one:
   ammount: 1.5
   shipping: 1.5
   cost: 1.5
-  detail_products: MyText
-  detail_paymment: MyText
-  detail: 
+  info_products: MyText
+  info_paymment: MyText
+  info_shipping: MyText
   state_payed: false
   state_shipped: false
   state_take: false
@@ -17,9 +17,9 @@ two:
   ammount: 1.5
   shipping: 1.5
   cost: 1.5
-  detail_products: MyText
-  detail_paymment: MyText
-  detail: 
+  info_products: MyText
+  info_paymment: MyText
+  info_shipping: MyText
   state_payed: false
   state_shipped: false
   state_take: false

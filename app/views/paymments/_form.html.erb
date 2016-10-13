@@ -11,57 +11,61 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
+    <%= f.select(:user_id, User.all.collect {|a| [a.name, a.id]}, {}, { class: 'form-control' }) -%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :ammount %>
-    <%= f.text_field :ammount %>
+    <%= f.text_field :ammount, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :shipping %>
-    <%= f.text_field :shipping %>
+    <%= f.text_field :shipping, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :cost %>
-    <%= f.text_field :cost %>
+    <%= f.text_field :cost, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :detail_products %>
-    <%= f.text_area :detail_products %>
+  <div class="form-group">
+    <%= f.label :info_products %>
+    <%= f.text_area :info_products, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :detail_paymment %>
-    <%= f.text_area :detail_paymment %>
+  <div class="form-group">
+    <%= f.label :info_paymment %>
+    <%= f.text_area :info_paymment, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :detail %>
-    <%= f.text_field :detail %>
+  <div class="form-group">
+    <%= f.label :info_shipping %>
+    <%= f.text_area :info_shipping, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :state_payed %>
-    <%= f.check_box :state_payed %>
+  <div class="checkbox">
+    <%= f.label :state_payed do %>
+    <%= f.check_box :state_payed %> State Payed ?
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :state_shipped %>
-    <%= f.check_box :state_shipped %>
+
+  <div class="checkbox">
+    <%= f.label :state_shipped do %>
+    <%= f.check_box :state_shipped %> State Shipped ?
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :state_take %>
-    <%= f.check_box :state_take %>
+  <div class="checkbox">
+    <%= f.label :state_take do %>
+    <%= f.check_box :state_take %> State Take ?
+    <% end %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>

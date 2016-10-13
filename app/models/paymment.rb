@@ -1,4 +1,3 @@
 class Paymment < ApplicationRecord
-  belongs_to	:user
-  has_one		:rank
+  belongs_to :user
 end

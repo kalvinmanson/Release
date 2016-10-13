@@ -17,7 +17,7 @@ class PaymmentsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create paymment" do
     assert_difference('Paymment.count') do
-      post paymments_url, params: { paymment: { ammount: @paymment.ammount, cost: @paymment.cost, detail: @paymment.detail, detail_paymment: @paymment.detail_paymment, detail_products: @paymment.detail_products, shipping: @paymment.shipping, state_payed: @paymment.state_payed, state_shipped: @paymment.state_shipped, state_take: @paymment.state_take, user_id: @paymment.user_id } }
+      post paymments_url, params: { paymment: { ammount: @paymment.ammount, cost: @paymment.cost, info_paymment: @paymment.info_paymment, info_products: @paymment.info_products, info_shipping: @paymment.info_shipping, shipping: @paymment.shipping, state_payed: @paymment.state_payed, state_shipped: @paymment.state_shipped, state_take: @paymment.state_take, user_id: @paymment.user_id } }
     end
 
     assert_redirected_to paymment_url(Paymment.last)
@@ -34,7 +34,7 @@ class PaymmentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update paymment" do
-    patch paymment_url(@paymment), params: { paymment: { ammount: @paymment.ammount, cost: @paymment.cost, detail: @paymment.detail, detail_paymment: @paymment.detail_paymment, detail_products: @paymment.detail_products, shipping: @paymment.shipping, state_payed: @paymment.state_payed, state_shipped: @paymment.state_shipped, state_take: @paymment.state_take, user_id: @paymment.user_id } }
+    patch paymment_url(@paymment), params: { paymment: { ammount: @paymment.ammount, cost: @paymment.cost, info_paymment: @paymment.info_paymment, info_products: @paymment.info_products, info_shipping: @paymment.info_shipping, shipping: @paymment.shipping, state_payed: @paymment.state_payed, state_shipped: @paymment.state_shipped, state_take: @paymment.state_take, user_id: @paymment.user_id } }
     assert_redirected_to paymment_url(@paymment)
   end
 
