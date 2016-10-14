@@ -31,10 +31,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 #MIS GEMAS
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails"
 gem 'will_paginate', '~> 3.0.6'
-gem 'bootstrap-material-design'
+#gem 'bootstrap-material-design'
 gem 'devise'
 gem 'omniauth-facebook' #Pendiente instalacion
 gem 'actionmailer' #Pendiente instalacion
@@ -45,6 +45,7 @@ gem 'geocoder' #Configurar en server final
 gem 'geokit-rails' 
 gem 'friendly_id', '~> 5.1.0' #URLs Amigables
 gem "wysiwyg-rails"
+gem 'rails-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

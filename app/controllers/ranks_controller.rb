@@ -5,6 +5,7 @@ class RanksController < ApplicationController
   # GET /ranks.json
   def index
     @ranks = Rank.all
+
   end
 
   # GET /ranks/1
@@ -19,6 +20,7 @@ class RanksController < ApplicationController
 
   # GET /ranks/1/edit
   def edit
+    I18n.locale = :es || I18n.default_locale
   end
 
   # POST /ranks

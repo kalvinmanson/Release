@@ -19,7 +19,5 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  welcome:
-    welcome: "Welcome to Release"
-    welcome_message: "Sell and share used books..."
+es:
+  hello: "Hola Mundo"

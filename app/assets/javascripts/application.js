@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
-//= require bootstrap-material-design
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
@@ -50,7 +49,7 @@
 
 $(document).on('turbolinks:load', function() {
 	
-	$.material.init();
+	//$.material.init();
     $('.froala').froalaEditor();
     $('.froalamin').froalaEditor({
         language:   'es',
