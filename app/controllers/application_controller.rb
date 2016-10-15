@@ -14,8 +14,19 @@ class ApplicationController < ActionController::Base
 	end
 
 	protected
-
 		def configure_permitted_parameters
 		    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password])
 		end
+
+	#solo administrador
+	WillPaginate.per_page = 2
+
+	#solo administrador
+	private
+	def is_admin
+		if !user_signed_in? || current_user.rol != "Admin"
+			flash[:error] = "unauthorized access"
+			redirect_to new_user_session_path
+		end
+	end
 end

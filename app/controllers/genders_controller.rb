@@ -1,5 +1,6 @@
 class GendersController < ApplicationController
   before_action :set_gender, only: [:show, :edit, :update, :destroy]
+  before_filter :is_admin, only: [:new, :edit, :update, :destroy]
 
   # GET /genders
   # GET /genders.json

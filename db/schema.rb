@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161013220954) do
+ActiveRecord::Schema.define(version: 20161015192357) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -37,15 +37,19 @@ ActiveRecord::Schema.define(version: 20161013220954) do
     t.integer  "pages"
     t.string   "isbn_10"
     t.string   "isbn_13"
-    t.text     "abstract",   limit: 65535
+    t.text     "abstract",           limit: 65535
     t.string   "lang"
     t.integer  "condition"
     t.boolean  "stock"
     t.integer  "price"
     t.string   "tags"
     t.integer  "quality"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
     t.index ["slug"], name: "index_books_on_slug", unique: true, using: :btree
     t.index ["user_id"], name: "index_books_on_user_id", using: :btree
   end
@@ -76,9 +80,9 @@ ActiveRecord::Schema.define(version: 20161013220954) do
     t.integer  "post_id"
     t.integer  "user_id"
     t.integer  "parent_id"
-    t.text   "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["book_id"], name: "index_comments_on_book_id", using: :btree
     t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
@@ -139,17 +143,17 @@ ActiveRecord::Schema.define(version: 20161013220954) do
 
   create_table "paymments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.float    "ammount",         limit: 24
-    t.float    "shipping",        limit: 24
-    t.float    "cost",            limit: 24
+    t.float    "ammount",       limit: 24
+    t.float    "shipping",      limit: 24
+    t.float    "cost",          limit: 24
     t.text     "info_products", limit: 65535
     t.text     "info_paymment", limit: 65535
     t.text     "info_shipping", limit: 65535
     t.boolean  "state_payed"
     t.boolean  "state_shipped"
     t.boolean  "state_take"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["user_id"], name: "index_paymments_on_user_id", using: :btree
   end
 

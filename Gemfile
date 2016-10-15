@@ -4,7 +4,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.3.18', '< 0.5'
+gem 'mysql2', '>= 0.3.18', '< 0.5', group: :production
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -33,7 +34,8 @@ gem 'jbuilder', '~> 2.5'
 #MIS GEMAS
 gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails"
-gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
 #gem 'bootstrap-material-design'
 gem 'devise'
 gem 'omniauth-facebook' #Pendiente instalacion
@@ -46,6 +48,7 @@ gem 'geokit-rails'
 gem 'friendly_id', '~> 5.1.0' #URLs Amigables
 gem "wysiwyg-rails"
 gem 'rails-i18n'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
