@@ -11,80 +11,97 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control" %>
+  
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control input-lg" %>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <%= f.label :cover %>
+        <%= f.file_field :cover, class: "form-control" %>
+      </div>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :cover %>
-    <%= f.file_field :cover %>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <%= f.label :author %>
+        <%= f.text_field :author, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <%= f.label :publisher %>
+        <%= f.text_field :publisher, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <%= f.label :collection %>
+        <%= f.text_field :collection, class: "form-control" %>
+      </div>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :author %>
-    <%= f.text_field :author, class: "form-control" %>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group">
+        <%= f.label :isbn_10 %>
+        <%= f.text_field :isbn_10, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+        <%= f.label :isbn_13 %>
+        <%= f.text_field :isbn_13, class: "form-control" %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :publisher %>
-    <%= f.text_field :publisher, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :collection %>
-    <%= f.text_field :collection, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :pages %>
-    <%= f.number_field :pages, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :isbn_10 %>
-    <%= f.text_field :isbn_10, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :isbn_13 %>
-    <%= f.text_field :isbn_13, class: "form-control" %>
-  </div>
-
+  
   <div class="form-group">
     <%= f.label :abstract %>
     <%= f.text_area :abstract, class: "form-control froalamin" %>
   </div>
-
-  <div class="form-group">
-    <%= f.label :lang %>
-    <%= f.text_field :lang, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :condition %>
-    <%= f.number_field :condition, class: "form-control" %>
-  </div>
-
-  <div class="checkbox">
-    <%= f.label :stock do %>
-    <%= f.check_box :stock %> In Stock ?
-    <% end %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :price %>
-    <%= f.number_field :price, class: "form-control" %>
-  </div>
-
   <div class="form-group">
     <%= f.label :tags %>
-    <%= f.text_field :tags, class: "form-control" %>
+    <%= f.text_field :tags, class: "form-control tagsinput" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :quality %>
-    <%= f.number_field :quality, class: "form-control" %>
+  <% @genders.each do |g| %>
+      <%= check_box_tag "book[gender_id][]", g.id, book.genders.include?(g) %>
+      <%= label_tag g.name %>
+  <% end %>
+  
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="form-group">
+        <%= f.label :pages %>
+        <%= f.number_field :pages, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="form-group">
+        <%= f.label :lang %>
+        <%= f.text_field :lang, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="form-group">
+        <%= f.label :condition %>
+        <%= f.number_field :condition, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="form-group">
+        <%= f.label :price %>
+        <%= f.number_field :price, class: "form-control" %>
+      </div>
+    </div>
   </div>
 
   <div class="form-group">

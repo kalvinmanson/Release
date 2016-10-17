@@ -19,10 +19,10 @@
   <tbody>
     <% @notifications.each do |notification| %>
       <tr>
-        <td><%= notification.user %></td>
+        <td><%= notification.user.name %></td>
         <td><%= notification.rank %></td>
         <td><%= notification.paymment %></td>
-        <td><%= notification.book %></td>
+        <td><%= notification.book.name %></td>
         <td><%= notification.caracter %></td>
         <td><%= notification.content %></td>
         <td><%= notification.checked %></td>

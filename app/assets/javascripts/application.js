@@ -15,6 +15,8 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
+//= require fancybox
+
 
 
 //= require froala_editor.min.js
@@ -29,8 +31,6 @@
 //= require plugins/font_family.min.js
 //= require plugins/font_size.min.js
 //= require plugins/fullscreen.min.js
-//= require plugins/image.min.js
-//= require plugins/image_manager.min.js
 //= require plugins/inline_style.min.js
 //= require plugins/line_breaker.min.js
 //= require plugins/link.min.js
@@ -48,6 +48,27 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
+
+    /*Tags input*/
+    $(".tagsinput").tagsinput();
+    /*Autoheight*/
+    function h(e) {
+      $(e).css({'height':'auto','overflow-y':'hidden'}).height(e.scrollHeight);
+    }
+    $('textarea').each(function () {
+      h(this);
+    }).on('input', function () {
+      h(this);
+    });
+
+    $(".fancyb").fancybox({
+        parent: 'body'
+    });
+
+    $('.book_list').masonry({
+      gutter: 10,
+      itemSelector: '.book'
+    });
 	
 	//$.material.init();
     $('.froala').froalaEditor();

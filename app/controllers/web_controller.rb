@@ -1,6 +1,6 @@
 class WebController < ApplicationController
 	def index
-		@last_books = Book.all
+		@genders = Gender.all
+		@last_books = Book.order('created_at DESC').limit(40)
 	end
-
 end

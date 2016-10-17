@@ -1,0 +1,12 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h4>Genders</h4>
+	</div>
+	<div class="panel-body">
+		<ul class="nav">
+			<% Gender.all.each do |gender| %>
+			<li><%= link_to gender.name, gender %></li> 
+			<% end %>
+		</ul>
+	</div>
+</div>

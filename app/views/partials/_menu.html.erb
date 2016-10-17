@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
+  <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -14,13 +14,14 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">Blog</a></li>
+        <li><%= link_to 'Blog', posts_path %></li>
+        <li><%= link_to 'New Books', books_path %></li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
     <% if current_user.present? %>
-      <li><a href="#"><i class="fa fa-bell-o"></i></a></li>
-      <li><%= link_to '<i class="fa fa-book"></i>'.html_safe, books_path %></li>
+      <li><%= link_to '<i class="fa fa-bell-o"></i>'.html_safe, notifications_path %></li>
+      <li><%= link_to '<i class="fa fa-book"></i>'.html_safe, books_my_path %></li>
       <li><%= link_to '<i class="fa fa-comments-o"></i>'.html_safe, comments_path %></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
@@ -36,12 +37,10 @@
     <% end %>
         
       </ul>
-      <form class="navbar-form navbar-right">
-        <div class="form-group">
-          <input type="text" class="form-control input-inverse" placeholder="Search" autofocus>
-        </div>
-        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-      </form>
+      <%= form_tag(books_path, {:method => :get, :class => 'navbar-form navbar-right qsearch'}) do %>
+          <%= text_field_tag :q, params[:q], placeholder: "Search Books...", class: "form-control q" %>
+          <%= button_tag '<i class="fa fa-search"></i>'.html_safe, :name => nil, class: "btn btn-default" %>
+      <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

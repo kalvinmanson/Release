@@ -1,0 +1,7 @@
+<div class="genders-menu">
+	<ul class="nav nav-tabs">
+		<% Gender.all do |gender| %>
+			<li><%= link_to gender.name, gender %></li>
+		<% end %>
+	</ul>
+</div>

@@ -2,5 +2,6 @@
 
 <%= render 'form', book: @book %>
 
+<%= link_to '<i class="fa fa-remove"></i>'.html_safe, @book, class: "btn btn-xs btn-danger",  method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Show', @book %> |
 <%= link_to 'Back', books_path %>

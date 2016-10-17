@@ -25,13 +25,20 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
+    @book = Book.find(@comment.book_id)
+    @comment.user_id = current_user.id
+
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+
+        format.html { redirect_to book_path(@book, anchor: "comments"), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
-        format.html { render :new }
+        flash[:alert] = @comment.errors.full_messages.join(', ')
+        format.html { 
+          redirect_to book_path(@book, anchor: "comments") 
+        }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end

@@ -49,6 +49,10 @@ gem 'friendly_id', '~> 5.1.0' #URLs Amigables
 gem "wysiwyg-rails"
 gem 'rails-i18n'
 gem 'rails_12factor', group: :production
+gem 'fancybox2-rails'
+gem 'rails_autolink'
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
