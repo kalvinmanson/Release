@@ -52,6 +52,8 @@ gem 'rails_12factor', group: :production
 gem 'fancybox2-rails'
 gem 'rails_autolink'
 
+gem 'unicorn'
+
 
 
 group :development, :test do
