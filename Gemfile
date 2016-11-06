@@ -46,7 +46,7 @@ gem "paperclip", "~> 5.0.0" #agregar campos
 gem 'geocoder' #Configurar en server final
 gem 'geokit-rails' 
 gem 'friendly_id', '~> 5.1.0' #URLs Amigables
-gem "wysiwyg-rails"
+gem 'ckeditor'
 gem 'rails-i18n'
 gem 'rails_12factor', group: :production
 gem 'fancybox2-rails'
