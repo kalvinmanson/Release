@@ -16,10 +16,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require fancybox
+//= require ckeditor/init
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
 
+    /*CKEDITOR */
+    if ($('.ckeditor')[0]) {
+      CKEDITOR.replace($('.ckeditor').attr('id'));
+    }
     /*Tags input*/
     $(".tagsinput").tagsinput();
     /*Autoheight*/
