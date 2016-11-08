@@ -28,7 +28,7 @@ class NotificationsController < ApplicationController
     @notification = Notification.new(notification_params)
 
     respond_to do |format|
-      if 
+      if @notification.save
         format.html { redirect_to @notification, notice: 'Notification was successfully created.' }
         format.json { render :show, status: :created, location: @notification }
       else

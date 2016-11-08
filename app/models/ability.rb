@@ -34,11 +34,8 @@ class Ability
       can :manage, :all
     elsif user.rol == "User"
       can :read, :all
-      can :create, Post
-      #Genders
-      can :read, Gender
-      #Books
-      can [:my, :create, :update], Book
+      can :create, Comment
+      can :update, Book, :user_id => user.id
     else
       can :read, :all
     end

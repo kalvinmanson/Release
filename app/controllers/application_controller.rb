@@ -25,20 +25,25 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+	#Generar notificacion
+	def notification n = {}
+		#invoque notification(:book_id => @book.id, :content => "Nuevo libro")
+		@data2save = []
+		@comments = Comment.where(book_id: n[:book_id])
+		@comments.each do |comment|
+			@miniar = [:user_id => comment.user.id, :content => n[:content], :book_id => n[:book_id]]
+			@data2save.push(@miniar)
+		end
+		Notification.create(@data2save)
+	end
+
 
 	protected
 		def configure_permitted_parameters
 		    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password])
 		end
 
-	#solo administrador
-	private
-		def is_admin
-			if !user_signed_in? || current_user.rol != "Admin"
-				flash[:error] = "unauthorized access"
-				redirect_to new_user_session_path
-			end
-		end
+	
 
 	
 	

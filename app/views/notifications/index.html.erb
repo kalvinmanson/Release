@@ -22,7 +22,7 @@
         <td><%= notification.user.name %></td>
         <td><%= notification.rank %></td>
         <td><%= notification.paymment %></td>
-        <td><%= notification.book.name %></td>
+        <td><%= notification.book.name if notification.book.present? %></td>
         <td><%= notification.caracter %></td>
         <td><%= notification.content %></td>
         <td><%= notification.checked %></td>
