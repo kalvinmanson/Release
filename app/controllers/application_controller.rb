@@ -17,6 +17,14 @@ class ApplicationController < ActionController::Base
 	  { locale: I18n.locale }
 	end
 
+	rescue_from CanCan::AccessDenied do |exception|
+		if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
+			redirect_to :back, :alert => exception.message
+		else
+			redirect_to root_path, :alert => exception.message
+		end
+	end
+
 
 	protected
 		def configure_permitted_parameters

@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
+  load_and_authorize_resource :find_by => :slug
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_filter :is_admin, only: [:new, :edit, :update, :destroy]
 
   # GET /categories
   # GET /categories.json

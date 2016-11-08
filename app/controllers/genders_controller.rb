@@ -1,6 +1,6 @@
 class GendersController < ApplicationController
+  load_and_authorize_resource :find_by => :slug
   before_action :set_gender, only: [:show, :edit, :update, :destroy]
-  before_filter :is_admin, only: [:new, :edit, :update, :destroy]
 
   # GET /genders
   # GET /genders.json

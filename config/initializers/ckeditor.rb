@@ -25,10 +25,11 @@ Ckeditor.setup do |config|
   # Setup authorization to be run as a before filter
   # By default: there is no authorization.
   # config.authorize_with :cancan
+  config.authorize_with :cancan
 
   # Override parent controller CKEditor inherits from
   # By default: 'ApplicationController'
-  config.parent_controller = 'ApplicationController'
+  # config.parent_controller = 'MyController'
 
   # Asset model classes
   # config.picture_model { Ckeditor::Picture }
