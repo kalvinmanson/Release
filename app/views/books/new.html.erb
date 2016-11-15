@@ -1,11 +1,14 @@
-<div class="row">
-	<div class="col-sm-4 col-md-3 col-lg-2">
-	</div>
-	<div class="col-sm-8 col-md-9 col-lg-10">
-		<div class="panel panel-info">
-			<div class="panel-body">
-				<%= render 'form', book: @book %>
-			</div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3">
+			<%= render "partials/user", locals: {user: current_user} %>
+		</div>
+		<div class="col-sm-9">
+			<h1>Add Book</h1>
+
+			<%= render 'form2', book: @book %>
+
 		</div>
 	</div>
 </div>
+

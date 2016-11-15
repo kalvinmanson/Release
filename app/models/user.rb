@@ -1,5 +1,11 @@
 class User < ApplicationRecord
 
+  acts_as_follower
+  acts_as_followable
+  acts_as_liker
+  acts_as_likeable
+  acts_as_mentionable
+
   before_validation :generate_slug
 
   validates_presence_of :name

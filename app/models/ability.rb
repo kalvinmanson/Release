@@ -35,6 +35,7 @@ class Ability
     elsif user.rol == "User"
       can :read, :all
       can :create, Comment
+      can [:my, :create], Book 
       can :update, Book, :user_id => user.id
     else
       can :read, :all

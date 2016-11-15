@@ -29,7 +29,6 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    @genders = Gender.all
     @book = Book.new
   end
 
@@ -44,11 +43,10 @@ class BooksController < ApplicationController
     @genders = Gender.all
     @book = Book.new(book_params)
     @book.user_id = current_user.id
-    @book.genders << Gender.friendly.find(params[:book][:gender_id])
-
 
     respond_to do |format|
       if @book.save
+        current_user.follow!(@book)
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
         format.json { render :show, status: :created, location: @book }
       else

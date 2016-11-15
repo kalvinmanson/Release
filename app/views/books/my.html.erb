@@ -1,38 +1,41 @@
-<div class="row">
-	<div class="col-sm-4 col-md-3 col-lg-2">
-	</div>
-	<div class="col-sm-8 col-md-9 col-lg-10">
-		<div class="panel panel-info">
-		  <div class="panel-body">
-		  	<%= link_to '<i class="fa fa-plus"></i> New Book'.html_safe, new_book_path, class: "btn btn-primary pull-right" %>
-		  	<h3>Manage your books</h3>
-		    <table class="table table-striped">
-				<tr>
-					<th>Book</th>
-					<th width="30"><i class="fa fa-comments-o"></i></th>
-					<th width="30"><i class="fa fa-file-text-o"></i></th>
-					<th width="30"><i class="fa fa-camera"></i></th>
-					<th>Date</th>
-				</tr>
-				<% @books.each do |book| %>
-				<tr>
-					<td>
-						<strong><%= link_to book.name + " | " + book.author, book %></strong><br />
-						<small><%= link_to 'Edit', edit_book_path(book) %> | <%= link_to 'Add Review', new_post_path %></small>
-					</td>
-					<td align="center"><%= book.comments.count %></td>
-					<td align="center"><%= book.posts.count %></td>
-					<td align="center"><%= book.pictures.count %></td>
-					<td>
-						<%= book.created_at.to_formatted_s(:long)   %><br />
-						<small>Last update <%= time_ago_in_words(book.updated_at) %> ago.</small>
-					</td>
-				</tr>
-				<% end %>
-			</table>
-			<%= will_paginate @books, renderer: BootstrapPagination::Rails %>
-		  </div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3">
+			<%= render "partials/user", locals: {user: current_user} %>
 		</div>
+		<div class="col-sm-9">
+			<div class="panel panel-info">
+			  <div class="panel-body">
+			  	<%= link_to '<i class="fa fa-plus"></i> New Book'.html_safe, new_book_path, class: "btn btn-primary pull-right" %>
+			  	<h3>Manage your books</h3>
+			    <table class="table table-striped">
+					<tr>
+						<th>Book</th>
+						<th width="30"><i class="fa fa-comments-o"></i></th>
+						<th width="30"><i class="fa fa-file-text-o"></i></th>
+						<th width="30"><i class="fa fa-camera"></i></th>
+						<th>Date</th>
+					</tr>
+					<% @books.each do |book| %>
+					<tr>
+						<td>
+							<strong><%= link_to book.name + " | " + book.author, book %></strong><br />
+							<small><%= link_to 'Edit', edit_book_path(book) %> | <%= link_to 'Add Review', new_post_path %></small>
+						</td>
+						<td align="center"><%= book.comments.count %></td>
+						<td align="center"><%= book.posts.count %></td>
+						<td align="center"><%= book.pictures.count %></td>
+						<td>
+							<%= book.created_at.to_formatted_s(:long)   %><br />
+							<small>Last update <%= time_ago_in_words(book.updated_at) %> ago.</small>
+						</td>
+					</tr>
+					<% end %>
+				</table>
+				<%= will_paginate @books, renderer: BootstrapPagination::Rails %>
+			  </div>
+			</div>
 
+		</div>
 	</div>
 </div>

@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :slug
       t.string :avatar
-      t.string :rol
+      t.string :rol, default: "User"
       t.float :rank
       t.string :gender
       t.date :bithdate

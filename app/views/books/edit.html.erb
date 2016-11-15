@@ -1,7 +1,18 @@
-<h1>Editing Book</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3">
+			<%= render "partials/user", locals: {user: current_user} %>
+		</div>
+		<div class="col-sm-9">
+			<h1>Editing Book</h1>
 
-<%= render 'form', book: @book %>
+			<%= render 'form', book: @book %>
 
-<%= link_to '<i class="fa fa-remove"></i>'.html_safe, @book, class: "btn btn-xs btn-danger",  method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>
+			<%= link_to '<i class="fa fa-remove"></i>'.html_safe, @book, class: "btn btn-xs btn-danger",  method: :delete, data: { confirm: 'Are you sure?' } %>
+			<%= link_to 'Show', @book %> |
+			<%= link_to 'Back', books_path %>
+
+		</div>
+	</div>
+</div>
+

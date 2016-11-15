@@ -1,0 +1,59 @@
+<div class="dise_user">
+  <%= link_to image_tag(locals[:user].avatar, class: "img-circle"), locals[:user] if locals[:user].avatar.present? %>
+  <h3><%= locals[:user].name %><small><%= locals[:user].slug %></small></h3>
+  <ul class="info">
+    <li><%= locals[:user].city.name %>, <%= locals[:user].city.country.name %></li>
+  </ul>
+</div>
+
+  <strong>Name:</strong>
+  <%= locals[:user].name %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%= locals[:user].avatar %>
+</p>
+
+<p>
+  <strong>Rol:</strong>
+  <%= locals[:user].rol %>
+</p>
+
+<p>
+  <strong>Rank:</strong>
+  <%= locals[:user].rank %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= locals[:user].gender %>
+</p>
+
+<p>
+  <strong>Bithdate:</strong>
+  <%= locals[:user].bithdate %>
+</p>
+
+<p>
+  <strong>Banned:</strong>
+  <%= locals[:user].banned %>
+</p>
+
+<p>
+  <strong>Banned date:</strong>
+  <%= locals[:user].banned_date %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= locals[:user].active %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(locals[:user]) %> |
+<%= link_to 'Back', users_path %>

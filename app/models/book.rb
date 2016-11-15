@@ -1,4 +1,9 @@
 class Book < ApplicationRecord
+
+  acts_as_followable
+  acts_as_mentionable
+  acts_as_likeable
+  
   belongs_to	:user
   has_many		:comments
   has_many 		:notifications
@@ -12,7 +17,6 @@ class Book < ApplicationRecord
   validates :name, length: { in: 6..100 }
   validates :author, presence: true
   validates :cover, presence: true
-  validates :pages, presence: true
 
   before_destroy :destroy_comments
 

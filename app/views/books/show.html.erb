@@ -1,79 +1,86 @@
-<div class="row">
-  <div class="col-sm-8 col-md-9 col-lg-10">
-    <div class="row">
-      <div class="col-sm-4">
-        <%= link_to image_tag(@book.cover.url(:medium), class: "img-responsive"), @book.cover.url, class: "fancyb"  %>
-      </div>
-      <div class="col-sm-8">
-        <%= link_to 'Edit', edit_book_path(@book) if current_user.present? && @book.user_id == current_user.id %>
-        <h1><%= @book.name %></h1>
-        <h2><%= @book.author %></h2>
-        <div class="panel">
-          <div class="panel-body">
-            <p>ISBN 10: <%= @book.isbn_10 %>, ISBN 13: <%= @book.isbn_13 %></p>
-            <p>Publisher: <%= @book.publisher %><br><small><%= @book.collection %></small></p>
-            <p>Pages: <%= @book.pages %></p>
-            <%= @book.abstract.html_safe %>
-            <p>
-              <strong>Lang:</strong>
-              <%= @book.lang %>
-            </p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="row">
+        <div class="col-sm-4">
+          <%= link_to image_tag(@book.cover.url(:medium), class: "img-responsive"), @book.cover.url, class: "fancyb"  %>
+          <%= link_to 'Edit', edit_book_path(@book), class: "btn btn-primary" if current_user.present? && @book.user_id == current_user.id %>
+        </div>
+        <div class="col-sm-8">
+          <h1><%= @book.name %></h1>
+          <h2><%= @book.author %></h2>
+          <div class="panel">
+            <div class="panel-body">
+              <p>ISBN 10: <%= @book.isbn_10 %>, ISBN 13: <%= @book.isbn_13 %></p>
+              <p>Publisher: <%= @book.publisher %><br><small><%= @book.collection %></small></p>
+              <p>Pages: <%= @book.pages %></p>
+              <%= @book.abstract.html_safe %>
+              <p>
+                <strong>Lang:</strong>
+                <%= @book.lang %>
+              </p>
 
-            <p>
-              <strong>Condition:</strong>
-              <%= @book.condition %>
-            </p>
+              <p>
+                <strong>Condition:</strong>
+                <%= @book.condition %>
+              </p>
 
-            <p>
-              <strong>Stock:</strong>
-              <%= @book.stock %>
-            </p>
+              <p>
+                <strong>Stock:</strong>
+                <%= @book.stock %>
+              </p>
 
-            <p>
-              <strong>Price:</strong>
-              <%= @book.price %>
-            </p>
+              <p>
+                <strong>Price:</strong>
+                <%= @book.price %>
+              </p>
 
-            <p>
-              <strong>Tags:</strong>
-              <%= @book.tags %>
-            </p>
+              <p>
+                <strong>Tags:</strong>
+                <%= @book.tags %>
+              </p>
 
-            <p>
-              <strong>Quality:</strong>
-              <%= @book.quality %>
-            </p>
-            <hr>
-            <h2>Genders</h2>
-            <% @book.genders.each do |gender| %>
-              <%= gender.name %>
+              <p>
+                <strong>Quality:</strong>
+                <%= @book.quality %>
+              </p>
+              <hr>
+              <h2>Genders</h2>
+              <% @book.genders.each do |gender| %>
+                <%= gender.name %>
+              <% end %>
+              <% if current_user.follows?(@book) %>
+                Si lo sigue
+              <% else %>
+                No lo sigue
+              <% end %>
+            </div>
+          </div>
+          <!-- Start Comments -->
+          <a name="comments"></a>
+          <div class="panel panel-primary">
+            <div class="panel-heading">Comments</div>
+            <div class="panel-body">
+            <%= render 'comments/form_book', comment: @comment, book: @book if current_user.present? %>
+            <table class="table table-striped">
+            <% @book.comments.each do |comment| %>
+              <tr>
+                <td width="60"><%= link_to image_tag(comment.user.avatar, class: "img-circle"), comment.user if comment.user.avatar.present? %></td>
+                <td>
+                  <strong><%= link_to comment.user.name, comment.user %></strong><br />
+                  <small><%= time_ago_in_words(comment.created_at) %></small>
+                  <%= auto_link(simple_format(comment.content), :html => { :target => '_blank', :rel => 'nofollow' }) %>
+                </td>
+              </tr>
             <% end %>
+            </table>
+            </div>
           </div>
-        </div>
-        <!-- Start Comments -->
-        <a name="comments"></a>
-        <div class="panel panel-primary">
-          <div class="panel-heading">Comments</div>
-          <div class="panel-body">
-          <%= render 'comments/form_book', comment: @comment, book: @book if current_user.present? %>
-          <table class="table table-striped">
-          <% @book.comments.each do |comment| %>
-            <tr>
-              <td width="60"><%= link_to image_tag(comment.user.avatar, class: "img-circle"), comment.user if comment.user.avatar.present? %></td>
-              <td>
-                <strong><%= link_to comment.user.name, comment.user %></strong><br />
-                <small><%= time_ago_in_words(comment.created_at) %></small>
-                <%= auto_link(simple_format(comment.content), :html => { :target => '_blank', :rel => 'nofollow' }) %>
-              </td>
-            </tr>
-          <% end %>
-          </table>
-          </div>
-        </div>
-      </div><!-- end col-sm-8 -->
+        </div><!-- end col-sm-8 -->
+      </div>
     </div>
-  </div>
-  <div class="col-sm-4 col-md-3 col-lg-2">
-    <%= render "partials/sidebar" %>
+    <div class="col-sm-3">
+      <%= render "partials/sidebar" %>
+    </div>
   </div>
 </div>
