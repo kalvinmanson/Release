@@ -21,3 +21,6 @@
 
 es:
   hello: "Hola Mundo"
+  welcome:
+    welcome: "Bienvenido a Release"
+    welcome_message: "Vende y comparte libros usados..."

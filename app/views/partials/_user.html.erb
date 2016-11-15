@@ -4,57 +4,11 @@
   <ul class="info">
     <li><%= locals[:user].city.name + ", " + locals[:user].city.country.name if locals[:user].city.present? %></li>
     <li>Followers: <%= locals[:user].followers_count %></li>
+    <li>Followees: <%= locals[:user].followees_count %></li>
+    <li>Gender: <%= locals[:user].gender %></li>
+    <li>Birhdate: <%= locals[:user].banned_date %></li>
   </ul>
 </div>
-
-  <strong>Name:</strong>
-  <%= locals[:user].name %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  
-</p>
-
-<p>
-  <strong>Avatar:</strong>
-  <%= locals[:user].avatar %>
-</p>
-
-<p>
-  <strong>Rol:</strong>
-  <%= locals[:user].rol %>
-</p>
-
-<p>
-  <strong>Rank:</strong>
-  <%= locals[:user].rank %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= locals[:user].gender %>
-</p>
-
-<p>
-  <strong>Bithdate:</strong>
-  <%= locals[:user].bithdate %>
-</p>
-
-<p>
-  <strong>Banned:</strong>
-  <%= locals[:user].banned %>
-</p>
-
-<p>
-  <strong>Banned date:</strong>
-  <%= locals[:user].banned_date %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= locals[:user].active %>
-</p>
 
 <%= link_to 'Edit', edit_user_path(locals[:user]) %> |
 <%= link_to 'Back', users_path %>
