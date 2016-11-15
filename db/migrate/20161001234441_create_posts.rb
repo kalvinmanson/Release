@@ -9,6 +9,9 @@ class CreatePosts < ActiveRecord::Migration[5.0]
       t.text :content
       t.text :description
       t.string :tags
+      t.integer :followers_count, default: 0
+      t.integer :likers_count, default: 0
+      t.integer :mentioners_count, default: 0
 
       t.timestamps
     end

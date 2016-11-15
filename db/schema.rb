@@ -47,8 +47,11 @@ ActiveRecord::Schema.define(version: 20161114202844) do
     t.integer  "price"
     t.string   "tags"
     t.integer  "quality"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.integer  "followers_count",    default: 0
+    t.integer  "likers_count",       default: 0
+    t.integer  "mentioners_count",   default: 0
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "cover_file_name"
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
@@ -100,8 +103,9 @@ ActiveRecord::Schema.define(version: 20161114202844) do
     t.integer  "user_id"
     t.integer  "parent_id"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "likers_count", default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["book_id"], name: "index_comments_on_book_id", using: :btree
     t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
@@ -230,8 +234,11 @@ ActiveRecord::Schema.define(version: 20161114202844) do
     t.text     "content"
     t.text     "description"
     t.string   "tags"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "followers_count",  default: 0
+    t.integer  "likers_count",     default: 0
+    t.integer  "mentioners_count", default: 0
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.index ["book_id"], name: "index_posts_on_book_id", using: :btree
     t.index ["category_id"], name: "index_posts_on_category_id", using: :btree
     t.index ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
@@ -276,6 +283,12 @@ ActiveRecord::Schema.define(version: 20161114202844) do
     t.boolean  "banned"
     t.date     "banned_date"
     t.boolean  "active"
+    t.integer  "followees_count",        default: 0
+    t.integer  "followers_count",        default: 0
+    t.integer  "likees_count",           default: 0
+    t.integer  "likers_count",           default: 0
+    t.integer  "mentionees",             default: 0
+    t.integer  "mentioners_count",       default: 0
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.string   "email",                  default: "",     null: false

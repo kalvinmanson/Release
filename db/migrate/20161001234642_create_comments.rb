@@ -6,6 +6,7 @@ class CreateComments < ActiveRecord::Migration[5.0]
       t.references :user, foreign_key: true
       t.integer :parent_id
       t.text :content
+      t.integer :likers_count, default: 0
 
       t.timestamps
     end

@@ -2,7 +2,8 @@
   <%= link_to image_tag(locals[:user].avatar, class: "img-circle"), locals[:user] if locals[:user].avatar.present? %>
   <h3><%= locals[:user].name %><small><%= locals[:user].slug %></small></h3>
   <ul class="info">
-    <li><%= locals[:user].city.name %>, <%= locals[:user].city.country.name %></li>
+    <li><%= locals[:user].city.name + ", " + locals[:user].city.country.name if locals[:user].city.present? %></li>
+    <li>Followers: <%= locals[:user].followers_count %></li>
   </ul>
 </div>
 
