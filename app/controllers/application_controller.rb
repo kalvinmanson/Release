@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 	before_filter :configure_permitted_parameters, if: :devise_controller?
 
 	before_action :set_locale
+	before_action :make_search
 
 	#solo administrador
 	WillPaginate.per_page = 24
@@ -16,6 +17,10 @@ class ApplicationController < ActionController::Base
 	def default_url_options
 	  { locale: I18n.locale }
 	end
+
+	def make_search
+	    @navgenders = Gender.all
+	  end
 
 	rescue_from CanCan::AccessDenied do |exception|
 		if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
@@ -47,4 +52,6 @@ class ApplicationController < ActionController::Base
 
 	
 	
+
+  
 end

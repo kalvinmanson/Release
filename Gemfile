@@ -51,6 +51,7 @@ gem 'rails_12factor', group: :production
 gem 'fancybox2-rails'
 gem 'rails_autolink'
 gem 'cancancan'
+gem 'animate-rails'
 
 gem 'unicorn'
 
