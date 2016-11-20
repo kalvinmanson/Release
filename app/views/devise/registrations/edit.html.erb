@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
+    <%= render "partials/user", locals: {user: current_user} %>
+    </div>
+    <div class="col-sm-9">
       <div class="panel panel-default">
         <div class="panel-heading"><h4><%= resource_name.to_s.humanize %></h4></div>
         <div class="panel-body">
@@ -8,8 +11,12 @@
             <%= devise_error_messages! %>
 
             <div class="form-group">
+              <%= f.label :name %><br />
+              <%= f.text_field :name, autofocus: true, class: "form-control" %>
+            </div>
+            <div class="form-group">
               <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, class: "form-control" %>
+              <%= f.email_field :email, class: "form-control" %>
             </div>
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -32,7 +39,7 @@
 
             <div class="form-group">
               <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-              <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+              <%= f.password_field :current_password, autocomplete: "off", required: true, class: "form-control" %>
             </div>
 
             <div class="form-group">

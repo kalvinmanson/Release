@@ -5,9 +5,29 @@
     </div>
     <div class="col-sm-9">
       <h3>Books</h3>
+      <ul class="listbooks">
+      <% @user.books.last(6).each do |book| %>
+          <li><%= book.name %></li>
+      <% end %>
+      </ul>
       <h3>Comments</h3>
+      <ul class="listbooks">
+      <% @user.comments.last(6).each do |comment| %>
+          <li><%= comment.book.name %></li>
+      <% end %>
+      </ul>
       <h3>Linkes</h3>
+      <ul class="listbooks">
+      <% @user.comments.last(6).each do |comment| %>
+          <li><%= comment.book.name %></li>
+      <% end %>
+      </ul>
       <h3>Follows</h3>
+      <ul class="listbooks">
+      <% @user.followees(User).last(6).each do |followee| %>
+          <li><%= followee.name %></li>
+      <% end %>
+      </ul>
     </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
 <div class="dise_user">
   <%= link_to image_tag(locals[:user].avatar, class: "img-circle"), locals[:user] if locals[:user].avatar.present? %>
   <h3><%= locals[:user].name %><small><%= locals[:user].slug %></small></h3>
+  <%= link_to("Update profile", edit_user_registration_path) if current_user.id == locals[:user].id %>
   <ul class="info">
     <li><%= locals[:user].city.name + ", " + locals[:user].city.country.name if locals[:user].city.present? %></li>
     <li>Followers: <%= locals[:user].followers_count %></li>
@@ -9,6 +10,3 @@
     <li>Birhdate: <%= locals[:user].banned_date %></li>
   </ul>
 </div>
-
-<%= link_to 'Edit', edit_user_path(locals[:user]) %> |
-<%= link_to 'Back', users_path %>
