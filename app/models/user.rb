@@ -5,6 +5,7 @@ class User < ApplicationRecord
   acts_as_liker
   acts_as_likeable
   acts_as_mentionable
+  acts_as_messageable
 
   before_validation :generate_slug
 
@@ -26,6 +27,12 @@ class User < ApplicationRecord
   has_many		:addresses
   has_many		:paymments
   has_many		:notifications
+
+  #email_mailboxer
+  def mailboxer_email(object)
+   #return the model's email here
+   email
+  end
 
   #url amigable
   extend FriendlyId

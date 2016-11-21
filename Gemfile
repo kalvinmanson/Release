@@ -52,6 +52,8 @@ gem 'fancybox2-rails'
 gem 'rails_autolink'
 gem 'cancancan'
 gem 'animate-rails'
+gem 'mailboxer'
+gem 'record_tag_helper', '~> 1.0'
 
 gem 'unicorn'
 
