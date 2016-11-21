@@ -1,12 +1,20 @@
-<div class="dise_user">
-  <%= link_to image_tag(locals[:user].avatar, class: "img-circle"), locals[:user] if locals[:user].avatar.present? %>
-  <h3><%= locals[:user].name %><small><%= locals[:user].slug %></small></h3>
-  <%= link_to("Update profile", edit_user_registration_path) if current_user.id == locals[:user].id %>
-  <ul class="info">
-    <li><%= locals[:user].city.name + ", " + locals[:user].city.country.name if locals[:user].city.present? %></li>
-    <li>Followers: <%= locals[:user].followers_count %></li>
-    <li>Followees: <%= locals[:user].followees_count %></li>
-    <li>Gender: <%= locals[:user].gender %></li>
-    <li>Birhdate: <%= locals[:user].banned_date %></li>
-  </ul>
+<div class="side-user">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="usertitle">
+        <%= link_to image_tag(locals[:user].avatar, class: "img-thumbnail pull-left"), locals[:user] if locals[:user].avatar.present? %>
+        <h3><%= link_to locals[:user].name, locals[:user] %><small><%= locals[:user].slug %></small></h3>
+        <%= link_to("Update profile", edit_user_registration_path) if current_user.id == locals[:user].id %>
+      </div>
+      <div class="clearfix"></div>
+      
+      <ul class="info">
+        <li><%= locals[:user].city.name + ", " + locals[:user].city.country.name if locals[:user].city.present? %></li>
+        <li>Followers: <%= locals[:user].followers_count %></li>
+        <li>Followees: <%= locals[:user].followees_count %></li>
+        <li>Gender: <%= locals[:user].gender %></li>
+        <li>Birhdate: <%= locals[:user].banned_date %></li>
+      </ul>
+    </div>
+  </div>
 </div>

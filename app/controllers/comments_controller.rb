@@ -32,6 +32,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        current_user.follow!(@book)
         format.html { redirect_to book_path(@book, anchor: "comments"), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
