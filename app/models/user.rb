@@ -28,6 +28,9 @@ class User < ApplicationRecord
   has_many		:paymments
   has_many		:notifications
 
+  has_attached_file :photo, styles: { medium: "400x400#", thumb: "100x100#" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
+
   #email_mailboxer
   def mailboxer_email(object)
    #return the model's email here
@@ -53,6 +56,12 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name   # assuming the user model has a name
       user.avatar = auth.info.image # assuming the user model has an image
+      
+
+      uri = URI.parse(auth.info.image)
+      uri.scheme = 'https'
+      user.update_attribute(:photo, URI.parse(uri.to_s))
+      user.skip_confirmation! 
     end
   end
 
