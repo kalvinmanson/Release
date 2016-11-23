@@ -1,8 +1,14 @@
 <%= form_for :conversation, url: :conversations do |f| %>
-  <%= f.text_field :recipients %>
-  <%= f.text_field :subject %>
-  <%= f.text_area :body, as: :text %>
-  <div class="form-actions">
-    <%= f.submit :submit, class: 'btn-primary' %>
+  <div class="form-group">
+  	<%= f.text_field :recipients, class: "form-control" %>
+  </div>
+  <div class="form-group">
+  	<%= f.text_field :subject, class: "form-control" %>
+  </div>
+  <div class="form-group">
+  	<%= f.text_area :body, rows: 4, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit :submit, class: 'btn btn-primary' %>
   </div>
 <% end %>

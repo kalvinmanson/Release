@@ -1,15 +1,28 @@
-<h1>
-  <%= conversation.subject %>
-</h1>
-<ul>
-  <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
-    <% message = receipt.message %>
-    <h3>
-      <%= message.subject %>
-    </h3>
-    <p>
-      <%= message.body %>
-    </p>
-  <% end %>
-</ul>
-<%= render 'messages/form', conversation: conversation %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <%= render "partials/user", locals: {user: current_user} %>
+    </div>
+    <div class="col-sm-9">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3 class="titpanel"><%= conversation.subject %></h3>
+          <ul class="conversation">
+            <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
+              <% message = receipt.message %>
+              <div class="message <%= "yo" if message.sender.id == current_user.id %>">
+                <small class="pull-right"><%= message.created_at.to_formatted_s(:short)  %></small>
+                <div class="user">
+                  <%= link_to message.sender.name, message.sender %> | <small><%= message.sender.slug %></small>
+                </div>
+                <div class="bubble <%= "new" if message.is_unread?(current_user) %>">
+                  <%= simple_format(message.body) %>
+                </div>
+              </div>
+            <% end %>
+          </ul>
+          <% conversation.mark_as_read(current_user) %>
+          <%= render 'messages/form', conversation: conversation %>
+    </div>
+  </div>
+</div>

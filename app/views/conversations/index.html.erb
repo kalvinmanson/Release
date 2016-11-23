@@ -1,14 +1,57 @@
-<h1>Conversations</h1>
-<h2>Inbox</h2>
-<ul>
-  <%= render collection: mailbox.inbox, partial: 'conversation' %>
-</ul>
-<h2>Sentbox</h2>
-<ul>
-  <%= render collection: mailbox.sentbox, partial: 'conversation' %>
-</ul>
-<h2>Trash</h2>
-<ul>
-  <%= render collection: mailbox.trash, partial: 'conversation' %>
-</ul>
-<%= link_to 'Start Conversation', :new_conversation %>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3">
+			<%= render "partials/user", locals: {user: current_user} %>
+		</div>
+		<div class="col-sm-9">
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation"><a href="#new" aria-controls="new" role="tab" data-toggle="tab"><i class="fa fa-plus"></i> New</a></li>
+				<li role="presentation" class="active"><a href="#inbox" aria-controls="inbox" role="tab" data-toggle="tab">Inbox</a></li>
+				<li role="presentation"><a href="#sentbox" aria-controls="sentbox" role="tab" data-toggle="tab">Sentbox</a></li>
+				<li role="presentation" class="pull-right"><a href="#trash" aria-controls="trash" role="tab" data-toggle="tab"><i class="fa fa-trash"></i></a></li>
+			</ul>
+
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane" id="new">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<%= render 'form' %>
+						</div>
+					</div>			
+				</div>
+				<div role="tabpanel" class="tab-pane active" id="inbox">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<ul class="list-group">
+								<%= render collection: mailbox.inbox, partial: 'conversation' %>
+							</ul>
+						</div>
+					</div>			
+				</div>
+				<div role="tabpanel" class="tab-pane" id="sentbox">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<ul class="list-group">
+								<%= render collection: mailbox.sentbox, partial: 'conversation' %>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="trash">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<ul class="list-group">
+								<%= render collection: mailbox.trash, partial: 'conversation' %>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>

@@ -1,7 +1,7 @@
 <%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
-  <%= f.text_field :subject %>
-  <%= f.text_area :body %>
+  <%= hidden_field_tag(:subject, "Re: "+ conversation.subject) %>
+  <%= f.text_area :body, class: "form-control", autofocus: true %>
   <div class="form-actions">
-    <%= f.submit :submit, class: 'btn-primary' %>
+    <%= f.submit "Send", class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -29,7 +29,9 @@ $(document).on('turbolinks:load', function() {
     $(".tagsinput").tagsinput();
     /*Autoheight*/
     function h(e) {
-      $(e).css({'height':'auto','overflow-y':'hidden'}).height(e.scrollHeight);
+        if (e.scrollHeight > 70) {
+            $(e).css({'height':'auto','overflow-y':'hidden'}).height(e.scrollHeight);
+        }
     }
     $('textarea').each(function () {
       h(this);

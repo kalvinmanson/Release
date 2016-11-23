@@ -4,9 +4,12 @@
 			<%= render "partials/user", locals: {user: current_user} %>
 		</div>
 		<div class="col-sm-9">
-			<h1>Add Book</h1>
-
-			<%= render 'form2', book: @book %>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<h3 class="titpanel">Add Book</h3>
+					<%= render 'form2', book: @book %>
+				</div>
+			</div>
 
 		</div>
 	</div>

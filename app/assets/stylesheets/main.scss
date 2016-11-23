@@ -216,3 +216,43 @@ header .miniimg {
 	color: $color4;
 	font-size: 14px;
 }
+/* USER MESSAGES */
+.conversation {
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.conversation .message {
+	padding:15px;
+	border-bottom:1px dashed $color4;
+	background-color: #f2f2f2;
+}
+.conversation .yo {
+	background-color: #e2e2e2;
+}
+.conversation .message .bubble {
+	position: relative;
+	padding: 15px;
+	margin-top: 20px;
+	background: #FFFFFF;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+.conversation .message .bubble:after {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 0 20px 15px;
+	border-color: #FFFFFF transparent;
+	display: block;
+	width: 0;
+	z-index: 1;
+	top: -15px;
+	left: 4px;
+}
+.badge a {
+	color: #FFFFFF;
+	font-weight: normal;
+}
