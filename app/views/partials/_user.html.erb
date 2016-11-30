@@ -11,9 +11,9 @@
       <ul class="list-group">
         <li class="list-group-item"><%= locals[:user].city.name + ", " + locals[:user].city.country.name if locals[:user].city.present? %></li>
         <li class="list-group-item">Followers: <%= locals[:user].followers_count %></li>
-        <li class="list-group-item">Followees: <%= locals[:user].followees_count %></li>
+        <li class="list-group-item">Books: <%= locals[:user].books.count %></li>
         <li class="list-group-item">Gender: <%= locals[:user].gender %></li>
-        <li class="list-group-item">Birhdate: <%= locals[:user].banned_date %></li>
+        <li class="list-group-item">Birhdate: <%= locals[:user].bithdate %></li>
       </ul>
     </div>
   </div>

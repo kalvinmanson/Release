@@ -86,14 +86,8 @@
     </div>
     <div class="col-sm-2">
       <div class="form-group">
-        <%= f.label :lang %>
-        <%= f.text_field :lang, class: "form-control" %>
-      </div>
-    </div>
-    <div class="col-sm-2">
-      <div class="form-group">
-        <%= f.label :condition %>
-        <%= f.number_field :condition, class: "form-control" %>
+        <%= f.label :lang %><br />
+        <%= f.select :lang, options_for_select([['Español', 'es'], ['English', 'en']], book.lang), {}, { class: "form-control" } %>
       </div>
     </div>
     <div class="col-sm-2">

@@ -1,44 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h1 class="titpanel"><%= @post.name %></h1>
+          <%= simple_format(@post.description) %>
+          <hr />
+          <%= @post.content.html_safe %>
+          <%= link_to 'Edit', edit_post_path(@post) if current_user.present? && current_user.id = @post.user_id %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Category:</strong>
-  <%= @post.category %>
-</p>
-
-<p>
-  <strong>Book:</strong>
-  <%= @post.book %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @post.name %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @post.slug %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @post.content.html_safe %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
-
-<p>
-  <strong>Tags:</strong>
-  <%= @post.tags %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>

@@ -257,3 +257,28 @@ header .miniimg {
 	color: #FFFFFF;
 	font-weight: normal;
 }
+.minipics {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+.minipics li {
+	display: block;
+	float: left;
+	width: 33%;
+	margin: 0;
+	padding: 0;
+}
+.minipics li .btn {
+	position: absolute;
+	margin: 0 0;
+	width:20px;
+	height: 20px;
+}
+.easy-picture {
+
+}
+.easy-picture .subir {
+
+}

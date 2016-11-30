@@ -1,36 +1,22 @@
-<%= link_to 'New Post', new_post_path, class: "btn btn-primary pull-right" %>
-<h1>Posts</h1>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th>Book</th>
-      <th>User</th>
-      <th>Name</th>
-      <th>Slug</th>
-      <th>Tags</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.category.name %></td>
-        <td><%= post.book.name if post.book.present? %></td>
-        <td><%= post.user.name %></td>
-        <td><%= post.name %></td>
-        <td><%= post.slug %></td>
-        <td><%= post.tags %></td>
-        <td>
-          <div class="btn-group">
-            <%= link_to '<i class="fa fa-eye"></i>'.html_safe, post, class: "btn btn-xs btn-info" %>
-            <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_post_path(post), class: "btn btn-xs btn-warning" %>
-            <%= link_to '<i class="fa fa-remove"></i>'.html_safe, post, class: "btn btn-xs btn-danger",  method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+          <%= link_to 'New Post', new_post_path, class: "btn btn-primary" if current_user.present? && current_user.rol == "Admin" %>
+          <% @posts.each do |post| %>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h3 class="titpanel">
+                <%= link_to post.name, post %> 
+                <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_post_path(post) if current_user.present? && post.user_id == current_user.id %>
+              </h3>
+              <small></small>
+              <%= simple_format(post.description) %>
+            </div>
           </div>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <% end %>
+    </div>
+    <div class="col-sm-3">
+      xxx
+    </div>
+  </div>
+</div>

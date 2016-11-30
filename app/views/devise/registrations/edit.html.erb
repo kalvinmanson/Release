@@ -17,6 +17,14 @@
                   <%= f.text_field :name, autofocus: true, class: "form-control" %>
                 </div>
                 <div class="form-group">
+                  <%= f.label :gender %><br />
+                  <%= f.select :gender, options_for_select([['Male'], ['Female']], current_user.gender), {}, { class: "form-control" } %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :bithdate, "Birthdate" %><br />
+                  <%= f.date_field :bithdate, class: "form-control" %>
+                </div>
+                <div class="form-group">
                   <%= label :ajax, :country_id %><br>
                   <%= select("ajax", "country_id", Country.all.collect {|a| [a.name, a.id]}, {:prompt => "Selecciona tu pais"}, { class: 'form-control combo_change', :data => { :fuente => "/cities_country.json", :destino => 'user_city_id', :grupo => 'city_id_group' } }) %>
                 </div>

@@ -5,8 +5,23 @@
         <div class="col-sm-4">
           <div class="panel panel-default">
             <div class="panel-body">
-              <%= link_to image_tag(@book.cover.url(:medium), class: "img-responsive"), @book.cover.url, class: "fancyb"  %>
-              <%= link_to 'Edit', edit_book_path(@book), class: "btn btn-primary" if current_user.present? && @book.user_id == current_user.id %>
+              <%= link_to image_tag(@book.cover.url(:medium), class: "img-responsive"), @book.cover.url, class: "fancyb", rel: "group"  %>
+              <ul class="minipics">
+              <% @book.pictures.each do |picture| %>
+                <li>
+                  <% if current_user.present? && @book.user_id == current_user.id %>
+                    <%= link_to '<i class="fa fa-remove"></i>'.html_safe, picture, class: "btn btn-xs btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% end %>
+                  <%= link_to image_tag(picture.file.url(:thumb), class: "img-responsive"), picture.file.url, class: "fancyb", rel: "group"  %>
+                </li>
+              <% end %>
+              </ul>
+              <div class="clearfix"></div>
+              <% if current_user.present? && @book.user_id == current_user.id %>
+              <div class="easy-picture">
+                <%= render 'pictures/easyform', picture: Picture.new %>
+              </div>
+              <% end %>
             </div>
           </div>
 
@@ -55,6 +70,7 @@
           <%= render "partials/user", locals: {user: @book.user} %>
         </div>
         <div class="col-sm-8 book">
+          <%= link_to '<i class="fa fa-edit"></i> Edit'.html_safe, edit_book_path(@book), class: "pull-right btn btn-xs btn-primary" if current_user.present? && @book.user_id == current_user.id %>
           <h1><%= @book.name %></h1>
           <h2><%= @book.author %></h2>
           <div class="panel panel-default">
@@ -71,7 +87,7 @@
             <table class="table table-striped">
             <% @book.comments.each do |comment| %>
               <tr>
-                <td width="60"><%= link_to image_tag(comment.user.avatar, class: "img-circle"), comment.user if comment.user.avatar.present? %></td>
+                <td width="60"><%= link_to image_tag(comment.user.photo.url(:thumb), class: "img-circle img-responsive"), comment.user %></td>
                 <td>
                   <strong><%= link_to comment.user.name, comment.user %></strong><br />
                   <small><%= time_ago_in_words(comment.created_at) %></small>
