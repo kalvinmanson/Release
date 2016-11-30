@@ -20,7 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es:
-  hello: "Hola Mundo"
   welcome:
-    welcome: "Bienvenido a Release"
+    welcome: "Bienvenido a Relesen"
     welcome_message: "Vende y comparte libros usados..."
