@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20161123065054) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "addresses", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "first_name"
@@ -27,7 +24,7 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.integer  "zipcode"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -56,8 +53,8 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
-    t.index ["slug"], name: "index_books_on_slug", unique: true, using: :btree
-    t.index ["user_id"], name: "index_books_on_user_id", using: :btree
+    t.index ["slug"], name: "index_books_on_slug", unique: true
+    t.index ["user_id"], name: "index_books_on_user_id"
   end
 
   create_table "books_genders", id: false, force: :cascade do |t|
@@ -70,7 +67,7 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
+    t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
   create_table "cities", force: :cascade do |t|
@@ -78,7 +75,7 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["country_id"], name: "index_cities_on_country_id", using: :btree
+    t.index ["country_id"], name: "index_cities_on_country_id"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -93,8 +90,8 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.integer  "height"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
-    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -106,9 +103,9 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.integer  "likers_count", default: 0
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.index ["book_id"], name: "index_comments_on_book_id", using: :btree
-    t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
-    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+    t.index ["book_id"], name: "index_comments_on_book_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -124,8 +121,8 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.string   "followable_type"
     t.integer  "followable_id"
     t.datetime "created_at"
-    t.index ["followable_id", "followable_type"], name: "fk_followables", using: :btree
-    t.index ["follower_id", "follower_type"], name: "fk_follows", using: :btree
+    t.index ["followable_id", "followable_type"], name: "fk_followables"
+    t.index ["follower_id", "follower_type"], name: "fk_follows"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -134,10 +131,10 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.string   "sluggable_type", limit: 50
     t.string   "scope"
     t.datetime "created_at"
-    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
-    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
-    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
-    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
   create_table "genders", force: :cascade do |t|
@@ -146,7 +143,7 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.string   "name_en"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["slug"], name: "index_genders_on_slug", unique: true, using: :btree
+    t.index ["slug"], name: "index_genders_on_slug", unique: true
   end
 
   create_table "likes", force: :cascade do |t|
@@ -155,16 +152,16 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.string   "likeable_type"
     t.integer  "likeable_id"
     t.datetime "created_at"
-    t.index ["likeable_id", "likeable_type"], name: "fk_likeables", using: :btree
-    t.index ["liker_id", "liker_type"], name: "fk_likes", using: :btree
+    t.index ["likeable_id", "likeable_type"], name: "fk_likeables"
+    t.index ["liker_id", "liker_type"], name: "fk_likes"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.string  "unsubscriber_type"
     t.integer "unsubscriber_id"
     t.integer "conversation_id"
-    t.index ["conversation_id"], name: "index_mailboxer_conversation_opt_outs_on_conversation_id", using: :btree
-    t.index ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type", using: :btree
+    t.index ["conversation_id"], name: "index_mailboxer_conversation_opt_outs_on_conversation_id"
+    t.index ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type"
   end
 
   create_table "mailboxer_conversations", force: :cascade do |t|
@@ -189,10 +186,10 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.datetime "created_at",                           null: false
     t.boolean  "global",               default: false
     t.datetime "expires"
-    t.index ["conversation_id"], name: "index_mailboxer_notifications_on_conversation_id", using: :btree
-    t.index ["notified_object_id", "notified_object_type"], name: "index_mailboxer_notifications_on_notified_object_id_and_type", using: :btree
-    t.index ["sender_id", "sender_type"], name: "index_mailboxer_notifications_on_sender_id_and_sender_type", using: :btree
-    t.index ["type"], name: "index_mailboxer_notifications_on_type", using: :btree
+    t.index ["conversation_id"], name: "index_mailboxer_notifications_on_conversation_id"
+    t.index ["notified_object_id", "notified_object_type"], name: "index_mailboxer_notifications_on_notified_object_id_and_type"
+    t.index ["sender_id", "sender_type"], name: "index_mailboxer_notifications_on_sender_id_and_sender_type"
+    t.index ["type"], name: "index_mailboxer_notifications_on_type"
   end
 
   create_table "mailboxer_receipts", force: :cascade do |t|
@@ -208,8 +205,8 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.boolean  "is_delivered",               default: false
     t.string   "delivery_method"
     t.string   "message_id"
-    t.index ["notification_id"], name: "index_mailboxer_receipts_on_notification_id", using: :btree
-    t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
+    t.index ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
+    t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
   end
 
   create_table "mentions", force: :cascade do |t|
@@ -218,8 +215,8 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.string   "mentionable_type"
     t.integer  "mentionable_id"
     t.datetime "created_at"
-    t.index ["mentionable_id", "mentionable_type"], name: "fk_mentionables", using: :btree
-    t.index ["mentioner_id", "mentioner_type"], name: "fk_mentions", using: :btree
+    t.index ["mentionable_id", "mentionable_type"], name: "fk_mentionables"
+    t.index ["mentioner_id", "mentioner_type"], name: "fk_mentions"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -232,10 +229,10 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.boolean  "checked"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["book_id"], name: "index_notifications_on_book_id", using: :btree
-    t.index ["paymment_id"], name: "index_notifications_on_paymment_id", using: :btree
-    t.index ["rank_id"], name: "index_notifications_on_rank_id", using: :btree
-    t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
+    t.index ["book_id"], name: "index_notifications_on_book_id"
+    t.index ["paymment_id"], name: "index_notifications_on_paymment_id"
+    t.index ["rank_id"], name: "index_notifications_on_rank_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -243,8 +240,8 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.integer  "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_orders_on_book_id", using: :btree
-    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+    t.index ["book_id"], name: "index_orders_on_book_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "paymments", force: :cascade do |t|
@@ -260,7 +257,7 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.boolean  "state_take"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["user_id"], name: "index_paymments_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_paymments_on_user_id"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -273,9 +270,9 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
-    t.index ["book_id"], name: "index_pictures_on_book_id", using: :btree
-    t.index ["post_id"], name: "index_pictures_on_post_id", using: :btree
-    t.index ["user_id"], name: "index_pictures_on_user_id", using: :btree
+    t.index ["book_id"], name: "index_pictures_on_book_id"
+    t.index ["post_id"], name: "index_pictures_on_post_id"
+    t.index ["user_id"], name: "index_pictures_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -292,10 +289,10 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.integer  "mentioners_count", default: 0
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.index ["book_id"], name: "index_posts_on_book_id", using: :btree
-    t.index ["category_id"], name: "index_posts_on_category_id", using: :btree
-    t.index ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
-    t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
+    t.index ["book_id"], name: "index_posts_on_book_id"
+    t.index ["category_id"], name: "index_posts_on_category_id"
+    t.index ["slug"], name: "index_posts_on_slug", unique: true
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "ranks", force: :cascade do |t|
@@ -305,8 +302,8 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.integer  "rank"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["paymment_id"], name: "index_ranks_on_paymment_id", using: :btree
-    t.index ["user_id"], name: "index_ranks_on_user_id", using: :btree
+    t.index ["paymment_id"], name: "index_ranks_on_paymment_id"
+    t.index ["user_id"], name: "index_ranks_on_user_id"
   end
 
   create_table "reports", force: :cascade do |t|
@@ -318,10 +315,10 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_reports_on_book_id", using: :btree
-    t.index ["comment_id"], name: "index_reports_on_comment_id", using: :btree
-    t.index ["post_id"], name: "index_reports_on_post_id", using: :btree
-    t.index ["user_id"], name: "index_reports_on_user_id", using: :btree
+    t.index ["book_id"], name: "index_reports_on_book_id"
+    t.index ["comment_id"], name: "index_reports_on_comment_id"
+    t.index ["post_id"], name: "index_reports_on_post_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -364,39 +361,10 @@ ActiveRecord::Schema.define(version: 20161123065054) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.index ["city_id"], name: "index_users_on_city_id", using: :btree
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-    t.index ["slug"], name: "index_users_on_slug", unique: true, using: :btree
+    t.index ["city_id"], name: "index_users_on_city_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
-  add_foreign_key "addresses", "users"
-  add_foreign_key "books", "users"
-  add_foreign_key "cities", "countries"
-  add_foreign_key "comments", "books"
-  add_foreign_key "comments", "posts"
-  add_foreign_key "comments", "users"
-  add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
-  add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
-  add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
-  add_foreign_key "notifications", "books"
-  add_foreign_key "notifications", "paymments"
-  add_foreign_key "notifications", "ranks"
-  add_foreign_key "notifications", "users"
-  add_foreign_key "orders", "books"
-  add_foreign_key "orders", "users"
-  add_foreign_key "paymments", "users"
-  add_foreign_key "pictures", "books"
-  add_foreign_key "pictures", "posts"
-  add_foreign_key "pictures", "users"
-  add_foreign_key "posts", "books"
-  add_foreign_key "posts", "categories"
-  add_foreign_key "posts", "users"
-  add_foreign_key "ranks", "paymments"
-  add_foreign_key "ranks", "users"
-  add_foreign_key "reports", "books"
-  add_foreign_key "reports", "comments"
-  add_foreign_key "reports", "posts"
-  add_foreign_key "reports", "users"
-  add_foreign_key "users", "cities"
 end

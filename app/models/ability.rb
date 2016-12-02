@@ -37,6 +37,8 @@ class Ability
       can :create, Comment
       can [:my, :create], Book 
       can :update, Book, :user_id => user.id
+      can [:create, :destroy], Picture, :book => { :user_id => user.id }
+      can [:manage], Post, :post => { :user_id => user.id }
     else
       can :read, :all
     end
