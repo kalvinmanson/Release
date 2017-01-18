@@ -10,6 +10,7 @@ class Book < ApplicationRecord
   has_many		:orders
   has_many		:pictures
   has_many		:posts
+  has_many    :users, through: :comments
   has_and_belongs_to_many :genders , :uniq => true
 
   validates :user_id, presence: true

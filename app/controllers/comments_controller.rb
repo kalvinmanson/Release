@@ -37,9 +37,7 @@ class CommentsController < ApplicationController
         format.json { render :show, status: :created, location: @comment }
       else
         flash[:alert] = @comment.errors.full_messages.join(', ')
-        format.html { 
-          redirect_to book_path(@book, anchor: "comments") 
-        }
+        format.html { redirect_to book_path(@book, anchor: "comments") }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
