@@ -22,7 +22,14 @@
     <% if current_user.present? %>
       <li><%= link_to '<i class="fa fa-bell-o"></i>'.html_safe, notifications_path %></li>
       <li><%= link_to '<i class="fa fa-book"></i>'.html_safe, books_my_path %></li>
-      <li><%= link_to('<i class="fa fa-comments-o"></i>'.html_safe, conversations_path) %></li>
+      <li>
+        <% if @unread_messages > 0 %>
+          <%= link_to('<i class="fa fa-comments-o text-danger"></i>'.html_safe, conversations_path) %>
+        <% else %>
+          <%= link_to('<i class="fa fa-comments-o"></i>'.html_safe, conversations_path) %>
+        <% end %>
+        
+      </li>
         <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
           <%= image_tag current_user.photo.url, class: "miniimg" %>  

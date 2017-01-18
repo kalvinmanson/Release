@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 	before_filter :configure_permitted_parameters, if: :devise_controller?
 
 	before_action :set_locale
-	before_action :make_search
+	before_action :generalvariables
 
 	#solo administrador
 	WillPaginate.per_page = 24
@@ -18,9 +18,14 @@ class ApplicationController < ActionController::Base
 	  { locale: I18n.locale }
 	end
 
-	def make_search
+	def generalvariables
 	    @navgenders = Gender.all
-	  end
+	    if current_user.present?
+	    	@unread_messages = current_user.mailbox.inbox({:read => false}).count
+	    else
+	    	@unread_messages = 0
+		end
+	end
 
 	rescue_from CanCan::AccessDenied do |exception|
 		if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
