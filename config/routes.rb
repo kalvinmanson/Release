@@ -37,6 +37,7 @@ Rails.application.routes.draw do
         #AJAX 
         get '/cities_country/:id', to: 'cities#index', as: 'cities_country'
         post '/cities_country', to: 'cities#index'
+        get '/books/:id/like', to: 'books#like' #like book
     end
   
   

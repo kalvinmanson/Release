@@ -28,10 +28,10 @@
 
       <div class="panel panel-default">
         <div class="panel-body">
-          <h3 class="titpanel">Linkes</h3>
+          <h3 class="titpanel">Likes</h3>
           <ul class="listbooks">
-          <% @user.comments.last(6).each do |comment| %>
-              <li><%= comment.book.name %></li>
+          <% @user.likees(Book).last(6).each do |book| %>
+              <li><%= book.name %></li>
           <% end %>
           </ul>
         </div>
@@ -40,11 +40,7 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <h3 class="titpanel">Follows</h3>
-          <ul class="listbooks">
-          <% @user.followees(User).last(6).each do |followee| %>
-              <li><%= followee.name %></li>
-          <% end %>
-          </ul>
+
         </div>
       </div>
     </div>

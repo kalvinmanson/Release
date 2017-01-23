@@ -1,9 +1,15 @@
 class BooksController < ApplicationController
   load_and_authorize_resource :find_by => :slug
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:like, :show, :edit, :update, :destroy]
 
   def my
     @books = Book.where(["user_id = :u", { u: current_user.id }]).paginate(:page => params[:page])
+  end
+
+  def like
+    current_user.toggle_like!(@book)
+    render json: current_user.likes?(@book)
+
   end
 
   # GET /books
